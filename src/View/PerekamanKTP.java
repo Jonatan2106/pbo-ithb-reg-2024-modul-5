@@ -282,26 +282,18 @@ public class PerekamanKTP {
         frame.add(citizenshipField);
 
         radioWNA.addActionListener(new ActionListener() {
-
             public void actionPerformed(ActionEvent e) {
-
                 countryLabel.setVisible(true);
                 citizenshipField.setVisible(true);
-
             }
-
         });
 
         radioWNI.addActionListener(new ActionListener() {
-
             public void actionPerformed(ActionEvent e) {
-
                 countryLabel.setVisible(false);
                 citizenshipField.setVisible(false);
                 citizenshipField.setText("");
-
             }
-
         });
         // Foto
 
@@ -314,23 +306,14 @@ public class PerekamanKTP {
         frame.add(buttonFoto);
 
         buttonFoto.addActionListener(new ActionListener() {
-
             @Override
-
             public void actionPerformed(ActionEvent e) {
-
                 JFileChooser fileChooser = new JFileChooser();
-
                 int returnValue = fileChooser.showOpenDialog(null);
-
                 if (returnValue == JFileChooser.APPROVE_OPTION) {
-
                     photoFile = fileChooser.getSelectedFile();
-
                 }
-
             }
-
         });
 
         // jenis kelamin
@@ -362,23 +345,14 @@ public class PerekamanKTP {
         frame.add(buttonTTD);
 
         buttonTTD.addActionListener(new ActionListener() {
-
             @Override
-
             public void actionPerformed(ActionEvent e) {
-
                 JFileChooser fileChooser = new JFileChooser();
-
                 int returnValue = fileChooser.showOpenDialog(null);
-
                 if (returnValue == JFileChooser.APPROVE_OPTION) {
-
                     signatureFile = fileChooser.getSelectedFile();
-
                 }
-
             }
-
         });
 
         JLabel labelBerlaku = new JLabel("Berlaku hingga : ");
@@ -449,7 +423,7 @@ public class PerekamanKTP {
                 String tanggalPembuatanlocalDateFormatted = tanggalPembuatanlocalDate
                         .format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 
-                KTP ktp = Controller.createKTP(nik, nama, tempatLahir, tanggalLahirlocalDateFormatted, jenisKelamin,
+            KTP ktp = Controller.createKTP(nik, nama, tempatLahir, tanggalLahirlocalDateFormatted, jenisKelamin,
                         golDarah, alamat, rtRw, kelDesa, kecamatan, agama, statusPerkawinan,
                         pekerjaan, kewarganegaraan, wargaNegaraAsal, photoFile, signatureFile, berlakuHingga,
                         kotaPembuatan, tanggalPembuatanlocalDateFormatted);
@@ -459,7 +433,7 @@ public class PerekamanKTP {
                 JOptionPane.showMessageDialog(frame, "Berhasil edit data!", "Notifikasi",
                         JOptionPane.INFORMATION_MESSAGE);
 
-                new PrintKTP(ktp);
+                new PrintKTP(KTP);
             }
         });
         frame.setVisible(true);
